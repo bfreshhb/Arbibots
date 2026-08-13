@@ -7,15 +7,20 @@ see the disclaimer in the footer and the links to the real
 `arbibots.xyz`, X/Twitter, and marketplace pages.
 
 It's a static site (plain HTML/CSS/JS, no build step), so any community
-member can fork it, edit it, and open a PR.
+member can fork it, edit it, and open a PR. The one exception is the
+wallet login button, which is a small pre-built React app — see
+[`wallet-widget/README.md`](wallet-widget/README.md).
 
 ## Structure
 
 ```
-index.html          Main page (hero, tracker, about, footer)
-css/style.css        All styling
-js/main.js            Nav toggle + live sales tracker logic
-data/last-sale.json   Manual fallback sale record used when the live API is unreachable
+index.html               Main page (hero, tracker, about, footer)
+css/style.css             All styling
+js/main.js                 Nav toggle + live sales tracker logic
+js/wallet-widget.js        Built wallet-login widget (do not hand-edit — see wallet-widget/)
+js/reflect-metadata.js     Polyfill the wallet widget depends on (also built, don't hand-edit)
+data/last-sale.json        Manual fallback sale record used when the live API is unreachable
+wallet-widget/             Source for the wallet-login widget (separate Vite/React project)
 ```
 
 ## Design

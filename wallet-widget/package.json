@@ -1,0 +1,33 @@
+{
+  "name": "wallet-widget",
+  "version": "1.0.0",
+  "description": "ZeroDev embedded-wallet login widget, mounted into the static site's header.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp dist/wallet-widget.js ../js/wallet-widget.js && cp node_modules/reflect-metadata/Reflect.js ../js/reflect-metadata.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tanstack/react-query": "^5.101.4",
+    "@wagmi/core": "^2.22.1",
+    "@zerodev/ecdsa-validator": "^5.4.9",
+    "@zerodev/sdk": "^5.5.4",
+    "@zerodev/wallet-core": "^0.0.3",
+    "@zerodev/wallet-react": "^0.0.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reflect-metadata": "^0.2.2",
+    "uuid": "^11.1.1",
+    "viem": "^2.55.15",
+    "wagmi": "^2.19.5",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.5",
+    "vite": "^8.2.1"
+  }
+}
