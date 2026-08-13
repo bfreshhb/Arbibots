@@ -12,7 +12,7 @@ member can fork it, edit it, and open a PR.
 ## Structure
 
 ```
-index.html          Main page (hero, about, tracker, ecosystem, community, footer)
+index.html          Main page (hero, tracker, about, footer)
 css/style.css        All styling
 js/main.js            Nav toggle + live sales tracker logic
 data/last-sale.json   Manual fallback sale record used when the live API is unreachable
