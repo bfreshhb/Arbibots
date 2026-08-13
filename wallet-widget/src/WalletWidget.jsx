@@ -8,7 +8,14 @@ function shortenAddress(address) {
 export function WalletWidget() {
   const { address, status } = useAccount()
   const { disconnect } = useDisconnect()
-  const authenticateOAuth = useAuthenticateOAuth()
+  const authenticateOAuth = useAuthenticateOAuth({
+    mutation: {
+      onError: (error) => {
+        // eslint-disable-next-line no-console
+        console.error('[wallet-widget] Google OAuth login failed:', error)
+      },
+    },
+  })
 
   if (status === 'connected' && address) {
     return (
@@ -38,7 +45,9 @@ export function WalletWidget() {
         {authenticateOAuth.isPending ? 'Logging in…' : 'Log in'}
       </button>
       {authenticateOAuth.isError && (
-        <span className="wallet-login-error">Login failed — try again.</span>
+        <span className="wallet-login-error">
+          {authenticateOAuth.error?.message || 'Login failed — try again.'}
+        </span>
       )}
     </div>
   )

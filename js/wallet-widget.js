@@ -45907,7 +45907,9 @@ function rY(e) {
 	return `${e.slice(0, 6)}…${e.slice(-4)}`;
 }
 function iY() {
-	let { address: e, status: t } = hC(), { disconnect: n } = Ew(), r = eY();
+	let { address: e, status: t } = hC(), { disconnect: n } = Ew(), r = eY({ mutation: { onError: (e) => {
+		console.error("[wallet-widget] Google OAuth login failed:", e);
+	} } });
 	return t === "connected" && e ? /* @__PURE__ */ (0, bw.jsxs)("div", {
 		className: "wallet-chip",
 		children: [
@@ -45934,7 +45936,7 @@ function iY() {
 			children: r.isPending ? "Logging in…" : "Log in"
 		}), r.isError && /* @__PURE__ */ (0, bw.jsx)("span", {
 			className: "wallet-login-error",
-			children: "Login failed — try again."
+			children: r.error?.message || "Login failed — try again."
 		})]
 	});
 }
